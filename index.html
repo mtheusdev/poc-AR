@@ -12,9 +12,16 @@
 
   <!-- Modelo 3D com AR e Detecção de Superfície -->
   <model-viewer src="base_basic_shaded.glb" alt="Descrição do modelo 3D" auto-rotate camera-controls ar
-    ar-modes="webxr scene-viewer quick-look" xr-spatial-tracking style="width: 100%; height: 100vh;">
+    ar-modes="scene-viewer quick-look" xr-spatial-tracking style="width: 100%; height: 100vh;">
   </model-viewer>
 
 </body>
+<script>
+  document.getElementById('modelViewer').addEventListener('ar-status', (event) => {
+    if (event.detail.status === 'failed') {
+      alert("Seu dispositivo pode não suportar AR ou WebXR não está ativado.");
+    }
+  });
+</script>
 
 </html>
